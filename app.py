@@ -2,9 +2,17 @@ import streamlit as st
 import pandas as pd
 import re
 import joblib
+import nltk  # <== required
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import matplotlib.pyplot as plt
+
+# Load updated models (from Models folder)
+nltk.download('stopwords') 
+# Load models
+predictor = joblib.load("Models/lr_sentiment_model.pkl")
+vectorizer = joblib.load("Models/tfidf_vectorizer.pkl")
+
 
 # Load updated models (from Models folder)
 predictor = joblib.load("Models/lr_sentiment_model.pkl")
